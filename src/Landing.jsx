@@ -1,7 +1,9 @@
 import React from 'react';
 import bac from "./Assets/bg.avif";
+import bac1 from "./Assets/tall.jpg"
 import 'react-slideshow-image/dist/styles.css';
 import { Fade } from 'react-slideshow-image';
+import {MoonIcon} from "@heroicons/react/outline"
 
 //side images 
 import s1 from "./Assets/SlideImages/s1.jpg";
@@ -37,26 +39,40 @@ import s5 from "./Assets/SlideImages/s5.jpg";
 function Landing() {
   return (
     <div>
-      <header className='w-full bg-blue-950 text-white h-[40px] flex justify-center items-center'>
-       <h2 className='msg'> Ramadan Kareem</h2>
-      </header>
-      <div className='w-full h-screen bg-black bg-cover bg-no-repeat flex flex-col justify-center p-10'
-      style={{ backgroundImage:`url(${bac})`}}>
-        <h1 className='text-[100px] text-yellow-200'>Le2met Setti</h1>
-        <p className='m-10 font-extrabold text-yellow-50 capitalize'>During the holy days of ramadan le2met setti presents special menu</p>
+        <header className='w-full h-[30px] bg-blue-950 text-yellow-50 font-bold
+        flex justify-center items-center'>
+          <h2 className='msg flex text-[15px]'>
+            <MoonIcon className='h-5 w-5 text-yellow-400'/>
+            Ramadan Kareem
+            <MoonIcon className='h-5 w-5 text-yellow-400'/>
+            </h2>
+            
+        </header>
 
-        <div className="slide-container w-[300px] h-[200px] mx-20">
-      <Fade className='w-full h-full'>
+        <div 
+        className="h-screen w-[100%] flex flex-col justify-start md:items-start items-center
+        bg-[url('/src/Assets/tall.jpg')]
+        md:bg-[url('/src/Assets/bg.avif')] bg-cover " >
+
+          <h1 className=' font-semibold text-[40px] md:w-full md:text-center
+          md:text-[77px] mainTitle'>Le2met Setti</h1>
+
+          <p className=' capitalize text-[12px] font-semibold p-2 text-center md:m-10 
+          md:text-[20px] text-white'>
+            During the holy days of ramadan le2met setti presentes special menu</p>
+
+          <div className="slide-container w-[250px] h-[250px] my-10 md:mx-10 md:my-20
+            drop-shadow-2xl slide1">
+      <Fade className='w-full h-full drop-shadow-2xl'>
         {fadeImages.map((fadeImage, index) => (
           <div key={index}>
-            <img style={{ width: '100%',height:'250px' }} src={fadeImage.url} className='rounded-xl w-full h-full' />
+            <img style={{ width: '100%',height:'250px' }} src={fadeImage.url} 
+            alt="Plate"className='rounded-[35px] w-full h-full' />
           </div>
         ))}
       </Fade>
         </div>
-        
-        
-      </div>
+        </div>    
     </div>
   )
 }
